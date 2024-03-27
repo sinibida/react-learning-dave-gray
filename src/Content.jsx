@@ -1,43 +1,73 @@
 import React from 'react'
 import { useState } from 'react';
+import { FaTrashAlt } from 'react-icons/fa'; // !!!
 
 function Content() {
-  const [name, setName] = useState("SPAUPA");
-  const [count, setCount] = useState(0);
+  const [items, setItems] = useState([
+    {
+      id: 1,
+      checked: false,
+      item: "A bag of nacho chips",
+    },
+    {
+      id: 2,
+      checked: true,
+      item: "A carton of milk",
+    },
+    {
+      id: 3,
+      checked: false,
+      item: "A box of apples",
+    },
+  ])
 
-  const handleNameChange = () => {
-    const names = ['SPAUPA', 'Juna', 'Yahiamice'];
-    const num = Math.floor(Math.random() * 3);
-    setName(names[num]);
+  const handleCheck = (id) => {
+    const listItems = items.map((item) => item.id === id ? {
+      ...item,
+      checked: !item.checked
+    } : item) // Checked 적용
+    setItems(listItems);
+    localStorage.setItem('shoppingList', JSON.stringify(listItems));
   }
 
-  const handleClick = () => {
-    setCount(count + 1); // <== Not added immediately
-    setCount(count + 1); // <== Not added immediately
-
-    console.log(count); 
-    // ex: if count was = 0 before `setCount(...)`
-    // console will print `0` instead of `1`
-
-    // multiple setCount 증감 => 한 번만 적용됨!
-  }
-
-  const handleClick2 = (name) => {
-    console.log(`${name} clicked it!`);
-  }
-
-  const handleClick3 = (e) => {
-    console.log(`${e.target.innerText} clicked it!`);
+  const handleDelete = (id) => {
+    const listItems = items.filter((item) => item.id !== id)
+    setItems(listItems);
+    localStorage.setItem('shoppingList', JSON.stringify(listItems));
   }
 
   return (
     <div className='content'>
-        <p onDoubleClick={handleClick}>
-          Hello {name} / Count = {count}
-        </p>
-        <button onClick={handleNameChange}>Click 1</button>
-        <button onClick={() => handleClick2("SPAUPA")}>Click 2</button>
-        <button onClick={(e) => handleClick3(e)}>ClickytyClacky</button>
+      {
+        items.length > 0 ? (
+          <ul className='item-list'>
+            {items.map((item) => (
+              <li className="item" key={item.id}>
+                <input
+                  type="checkbox"
+                  checked={item.checked}
+                  onChange={() => handleCheck(item.id)}
+                />
+                <label
+                  style={(item.checked) ? {
+                    textDecoration: "line-through"
+                  } : null}
+                  onDoubleClick={() => handleCheck(item.id)}
+                >{item.item}</label>
+                <FaTrashAlt
+                  role='button' 
+                  tabIndex={0}
+                  onClick={() => handleDelete(item.id)}
+                />
+                {/* ^^^ <svg>로 렌더링 됨 */}
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p><i>The list is empty.</i></p>
+        )
+      }
+      
     </div>
   )
 }
