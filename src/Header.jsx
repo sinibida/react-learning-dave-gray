@@ -1,11 +1,15 @@
 import React from 'react'
 
-function Header() {
+function Header({ title }) {
   return (
     <div className='header'>
-        <h1>Header</h1>
+        <h1>{title}</h1>
     </div>
   )
+}
+
+Header.defaultProps = {
+  title: "Header?"
 }
 
 export default Header

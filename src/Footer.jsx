@@ -1,10 +1,17 @@
 import React from 'react'
 
-function Footer() {
+function Footer({
+  length
+}) {
+  const lengthText = `${length} ${
+    length === 1 ? 
+    "item" : 
+    "items"
+  }`
   return (
-    <div className='footer'>
-        Copyright ⓒ 2024
-    </div>
+    <footer className='footer'>
+        Copyright ⓒ 2024 ({lengthText})
+    </footer>
   )
 }
 
