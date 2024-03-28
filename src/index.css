@@ -80,3 +80,64 @@ html, body, #root {
     height: 2em;
   }
 }
+
+.add-form {
+  display: flex;
+  padding: 8px;
+  gap: 4px;
+  align-items: stretch;
+
+  & label {
+    position:absolute;
+    left: -99999px;
+    /* 접근성 때문이라지만... 그래도 이렇게까지? */
+  }
+
+  & input {
+    flex-grow: 1;
+    font-size: large;
+  }
+
+  & button {
+    width: 2em;
+    height: 2em;
+    text-align: center;
+    vertical-align: middle;
+    font-size: large;
+    padding-top: 0.25em;
+  }
+}
+
+.search-form {
+  display: flex;
+  padding: 8px;
+  gap: 4px;
+  align-items: stretch;
+
+  & label {
+    position:absolute;
+    left: -99999px;
+    /* 접근성 때문이라지만... 그래도 이렇게까지? */
+  }
+
+  & input {
+    flex-grow: 1;
+    font-size: large;
+  }
+
+  & button {
+    width: 2em;
+    height: 2em;
+    text-align: center;
+    vertical-align: middle;
+    font-size: large;
+    padding-top: 0.25em;
+  }
+}
+
+hr {
+  border: solid thin var(--accent);
+  align-self: stretch;
+  margin-left: 8px;
+  margin-right: 8px;
+}
