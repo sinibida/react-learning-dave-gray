@@ -19,7 +19,11 @@
   "portsAttributes": {
     "3000": {
       "label": "Application"
+    },
+    "3500": {
+      "label": "JSON Server",
+      "requireLocalPort": false
     }
   },
-  "forwardPorts": [3000]
+  "forwardPorts": [3000, 3500]
 }

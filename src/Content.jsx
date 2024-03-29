@@ -7,7 +7,7 @@ function Content({
   handleCheck
 }) {
   return (
-    <div className='content'>
+    <>
       {
         items.length > 0 ? (
           <ListView
@@ -19,7 +19,7 @@ function Content({
           <p><i>The list is empty.</i></p>
         )
       }
-    </div>
+    </>
   )
 }
 
