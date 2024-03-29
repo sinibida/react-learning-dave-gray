@@ -2,22 +2,22 @@ import AddItem from './AddItem';
 import Content from './Content';
 import Footer from './Footer';
 import Header from './Header';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import SearchItem from './SearchItem';
 
 const SHOPPING_LIST_KEY = "shoppingList"
 
 function App() {
   const [items, setItems] = useState(
-    JSON.parse(localStorage.getItem(SHOPPING_LIST_KEY))
+    JSON.parse(localStorage.getItem(SHOPPING_LIST_KEY)) ||
+    []
   )
   const [newItem, setNewItem] = useState("");
   const [search, setSearch] = useState("");
 
-  const setAndSaveItems = (items) => {
-    setItems(items);
+  useEffect(() => {
     localStorage.setItem(SHOPPING_LIST_KEY, JSON.stringify(items));
-  }
+  }, [items])
 
   const addItem = (itemName) => {
     const id = items.length === 0 ? 1 : items[items.length - 1].id + 1;
@@ -32,7 +32,7 @@ function App() {
       ...items,
       newItem
     ]
-    setAndSaveItems(listItems);
+    setItems(listItems);
   }
 
   const handleCheck = (id) => {
@@ -40,12 +40,12 @@ function App() {
       ...item,
       checked: !item.checked
     } : item) // Checked 적용
-    setAndSaveItems(listItems);
+    setItems(listItems);
   }
 
   const handleDelete = (id) => {
     const listItems = items.filter((item) => item.id !== id)
-    setAndSaveItems(listItems);
+    setItems(listItems);
   }
 
   const handleSubmit = (e) => {

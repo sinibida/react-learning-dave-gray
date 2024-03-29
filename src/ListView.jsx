@@ -10,7 +10,7 @@ function ListView({
     <ul className='item-list'>
       {items.map((item) => (
         <LineItem
-          key={item.key}
+          key={item.id}
           item={item}
           handleCheck={handleCheck}
           handleDelete={handleDelete}
