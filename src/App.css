@@ -1,0 +1,28 @@
+.header-form {
+  display: flex;
+  
+  height: 32px;
+}
+
+.tab-button {
+  flex-grow: 1;
+  flex-basis: 0;
+  
+  background-color: #eee;
+  border: solid thin gray;
+  color: black;
+  
+  outline: none;
+  
+  &.active {
+    background-color: black;
+    border: solid thin white;
+    color: white;
+  }
+}
+
+.data-table {
+  & td, & th {
+    border: solid black thin
+  }
+}
