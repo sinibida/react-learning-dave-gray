@@ -1,19 +1,24 @@
 {
   "items": [
     {
-      "id": 1,
-      "checked": false,
-      "item": "Bag of Nacho Chips"
-    },
-    {
-      "id": 2,
+      "id": "1",
       "checked": true,
-      "item": "Pasta"
+      "item": "Apple"
     },
     {
-      "id": 3,
+      "id": "2",
       "checked": false,
-      "item": "Tomato Sauce"
+      "item": "Orange"
+    },
+    {
+      "id": "3",
+      "checked": true,
+      "item": "Grape"
+    },
+    {
+      "id": "4",
+      "checked": true,
+      "item": "Pizza"
     }
   ]
 }

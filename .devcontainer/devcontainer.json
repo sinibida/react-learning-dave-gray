@@ -7,7 +7,9 @@
   "updateContentCommand": "npm install",
   "postCreateCommand": "",
   "postAttachCommand": {
-    "server": "npm start"
+    "server": "npm start",
+    "jsonServer": "npx json-server -p 3500 data/db.json",
+    "openPort3500": "gh codespace ports visibility 3500:public -c $CODESPACE_NAME && exit"
   },
   "customizations": {
     "codespaces": {
@@ -21,8 +23,7 @@
       "label": "Application"
     },
     "3500": {
-      "label": "JSON Server",
-      "requireLocalPort": false
+      "label": "JSON Server"
     }
   },
   "forwardPorts": [3000, 3500]
