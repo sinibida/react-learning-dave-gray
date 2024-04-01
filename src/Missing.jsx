@@ -1,8 +1,15 @@
 import React from 'react'
 
+import { Link } from 'react-router-dom'
+
 function Missing() {
   return (
-    <div>Missing</div>
+    <main className='Missing'>
+      <p>Post Not Found</p>
+      <Link to={"/"}>
+        &gt; Go to the Homepage.
+      </Link>
+    </main>
   )
 }
 

@@ -1,8 +1,18 @@
 import React from 'react'
 
-function Home() {
+import Feed from './Feed'
+
+function Home({
+  posts
+}) {
   return (
-    <div>Home</div>
+    <main className="Home">
+      {posts.length > 0 ? (
+        <Feed posts={posts}/>
+      ) : (
+        <i>No posts here...</i>
+      )}
+    </main>
   )
 }
 

@@ -1,8 +1,15 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-function Header() {
+function Header({
+  title
+}) {
   return (
-    <h1>Header</h1>
+    <header className='Header'>
+      <Link to="/">
+        <h1>{title}</h1>
+      </Link>
+    </header>
   )
 }
 
